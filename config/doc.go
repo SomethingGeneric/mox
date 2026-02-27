@@ -837,10 +837,11 @@ See https://pkg.go.dev/github.com/mjl-/sconf for details.
 			# If set, upper/lower case is relevant for email delivery. (optional)
 			LocalpartCaseSensitive: false
 
-			# Envelope MAIL FROM domains listed here are silently accepted but delivered to the void mailbox instead of to user mailboxes. Prefix an entry with "." to match the domain and all of its subdomains. (optional)
+			# Domains whose messages should be silently accepted during SMTP but diverted to
+			# the void mailbox. Prefix with '.' to match the domain and its subdomains.
+			# Matching is done against the envelope MAIL FROM domain. (optional)
 			VoidSenderDomains:
-				- example.org
-				- .example.net
+				-
 
 			# With DKIM signing, a domain is taking responsibility for (content of) emails it
 			# sends, letting receiving mail servers build up a (hopefully positive) reputation
